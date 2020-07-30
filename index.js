@@ -21,6 +21,8 @@ var fnExtraeContenido = function(parametroUrl){
                 var vTituloVideo = $(elemento).children('.thumb-under').eq(0).children('.title').children('a').eq(0).text();
                 if(vTituloVideo.trim() == ''){ return true; }
                 var vImagenVideo = $(elemento).children('.thumb-inside').eq(0).children('.thumb').children('a').eq(0).children('img').eq(0).attr('data-src');
+                // reparamos las url de las imagenes rotas.
+                vImagenVideo = vImagenVideo.replace('.THUMBNUM.jpg','.1.jpg');
                 var vUrlVideo = 'https://www.xvideos.com'+$(elemento).children('.thumb-under').eq(0).children('.title').children('a').eq(0).attr('href');
                 videos.push({titulo:vTituloVideo,imagen:vImagenVideo,url:vUrlVideo});
             });
